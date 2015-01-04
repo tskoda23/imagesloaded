@@ -11,7 +11,7 @@
   <script src="../bower_components/eventEmitter/EventEmitter.js"></script>
   <script src="../bower_components/eventie/eventie.js"></script>
   <script src="../bower_components/qunit/qunit/qunit.js"></script>
-  <script src="../bower_components/jquery/jquery.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
 
   <script src="../imagesloaded.js"></script>
 
@@ -22,6 +22,9 @@
   <script src="data-uri.js"></script>
   <script src="append.js"></script>
   <script src="no-images.js"></script>
+  <script src="background-image.js"></script>
+  <script src="background-image-basics.js"></script>
+  <script src="multiple-background-images.js"></script>
   <script src="jquery-success.js"></script>
   <script src="jquery-fail.js"></script>
   <script src="non-element.js"></script>
@@ -58,6 +61,17 @@
   <div id="append"></div>
 
   <div id="no-images"></div>
+
+  <div id="background-image" class="bg-image" style="background-image:url(http://i.imgur.com/Iv7jq1y.jpg);"></div>
+
+  <div id="background-image-basics">
+    <div class="bg-image" style="background-image:url(http://i.imgur.com/LJIEh4v.jpg);"></div>
+    <div class="bg-image" style="background:url(http://i.imgur.com/f6v1NVA.jpg);"></div>
+  </div>
+
+  <div id="multiple-background-images">
+    <div class="bg-image" style="background:url(http://i.imgur.com/212I8BO.jpg),url(http://i.imgur.com/w2hapwJ.jpg);"></div>
+  </div>
 
   <div id="jquery-success">
     <img src="http://i.imgur.com/YbYCPFF.png" />

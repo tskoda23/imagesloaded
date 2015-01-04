@@ -148,6 +148,34 @@ function makeArray( obj ) {
         var img = childElems[j];
         this.addImage( img );
       }
+
+      // allow background images
+      if ( this.options.background ) {
+        if ( !!elem.style.background ) {
+          this.addBackgroundImage( elem );
+        }
+        for ( var k=0, kLen = elem.children.length; k < kLen; k++ ) {
+          var child = elem.children[k];
+          this.addBackgroundImage( child );
+        }
+      }
+    }
+  };
+
+  ImagesLoaded.prototype.addBackgroundImage = function( elem ) {
+    var sources = [];
+
+    if ( !!elem.style.background ) {
+      sources = elem.style.background.split( ',' );
+    }
+
+    for ( var i=0, len = sources.length; i < len; i++ ) {
+      var matches = sources[i].match( /url\((['"])?(.*?)\1\)/ );
+      if ( matches ) {
+        var img = new Image();
+        img.src = matches.pop();
+        this.addImage( img );
+      }
     }
   };
 
