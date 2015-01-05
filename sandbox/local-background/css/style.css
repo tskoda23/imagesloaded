@@ -1,0 +1,9 @@
+.bg-img1 { background-image: url(../../../test/img/fox.jpg); }
+
+.bg-img {
+  display: inline-block;
+  width: 240px;
+  height: 240px;
+  background-position: center center;
+  background-size: cover;
+}

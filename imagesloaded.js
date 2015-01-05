@@ -151,9 +151,8 @@ function makeArray( obj ) {
 
       // allow background images
       if ( this.options.background ) {
-        if ( !!elem.style.background ) {
-          this.addBackgroundImage( elem );
-        }
+        this.addBackgroundImage( elem );
+
         for ( var k=0, kLen = elem.children.length; k < kLen; k++ ) {
           var child = elem.children[k];
           this.addBackgroundImage( child );
@@ -162,15 +161,19 @@ function makeArray( obj ) {
     }
   };
 
-  ImagesLoaded.prototype.addBackgroundImage = function( elem ) {
-    var sources = [];
+  var reCSSUrl = /url\((['"])?(.*?)\1\)/;
 
-    if ( !!elem.style.background ) {
-      sources = elem.style.background.split( ',' );
-    }
+  /**
+   * @param {Element} elem
+   */
+  ImagesLoaded.prototype.addBackgroundImage = function( elem ) {
+    var bgImg = getComputedStyle( elem ).backgroundImage;
+    // allow multiple background-image
+    var sources = bgImg.split(',');
 
     for ( var i=0, len = sources.length; i < len; i++ ) {
-      var matches = sources[i].match( /url\((['"])?(.*?)\1\)/ );
+      var matches = sources[i].match( reCSSUrl );
+      //
       if ( matches ) {
         var img = new Image();
         img.src = matches.pop();

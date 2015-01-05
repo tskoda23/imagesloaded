@@ -10,3 +10,6 @@ img {
   background-position: center center;
   background-size: cover;
 }
+
+#background-image { background-image: url(http://i.imgur.com/Iv7jq1y.jpg); }
+#local-background-image { background-image: url(../img/fox.css); }
