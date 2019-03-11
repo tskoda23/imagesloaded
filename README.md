@@ -1,4 +1,4 @@
-# imagesLoaded
+# mediaLoaded
 
 [Original repo](https://github.com/desandro/imagesloaded)
 
